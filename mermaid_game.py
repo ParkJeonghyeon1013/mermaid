@@ -19,8 +19,12 @@ class user_ask:
 class mermaid_answer:
     answer_a = "지금 %s원 정도 있네요~"%mermaid.coin
     answer_b = "인간이 되는 약은 약쟁이 소라게에게 살 수 있어요!!"
-    answer_c = "코인 버는 방법은 2가지가 있어요~\n 첫 번째는 진주 가게에서 알바 하는 것!\n 두 번째는 미역 가게에서 알바 하는 것!\n"
-    answer_d = "따라오세요!"
+    answer_c = "코인 버는 방법은 2가지가 있어요~\n\t첫 번째는 진주 가게에서 알바 하는 것!\n\t두 번째는 미역 가게에서 알바 하는 것!\n"
+
+class map:
+    stage_1 = "1 - 미역 공장 가본다"
+    stage_2 = "2 - 진주 가게에 가본다"
+    stage_3 = "3 - 약쟁이 소라게에게 가본다"
     
 # 시작할지 말지 선택
 print("바닷속에 살던 인어는 자신과 생김새가 똑같은 육지의 인간을 발견합니다.\n행복해보이는 이들의 삶을 동경하게 된 인어는 사람이 되고자 인간이 되는 약을 사려고 하네요.")
@@ -34,7 +38,7 @@ while 1:
         print("인어는 평생 인어로 살아갔답니다^^\n 그래도 고생해서 만들었는데 Play 해주세요...")
         continue
 
-# intro
+# intro - 게임 map에 대한 설명
 print("""~~~~~~~ ~~~~~     ~~~~~~~~   ~~~~~~~~~~~~~~~~
            ~~~~~   ~~~~~~~~~~~~~        ~~~~~~~~
       ~~~ ~~~~~~~~~    ~~~~~~~~~~~~       ~~~~~~~~~~~
@@ -45,24 +49,49 @@ print("""~~~~~~~ ~~~~~     ~~~~~~~~   ~~~~~~~~~~~~~~~~
 
 print("안녕하세요? 반가워요~ 저는 인어 [%s] 입니다~\n인간은 되고 싶고 코인은 없고... 그런 절 도와주시겠다고 선뜻 와주셔서 고마워요~"%(mermaid.name))
 input()
-ask = int(input("1 - %s \n2 - %s\n"%(user_ask.a, user_ask.b)))
-while true:
+
+while True:
+    ask = int(input("1 - %s \n2 - %s\n"%(user_ask.a, user_ask.b)))
+    #코인 | 약
     if ask == 1:
-        print("%s"%(mermaid_answer.answer_a))
+        print("%s\n\n인간이 되는 약에 대해서는 궁금하지 않나요?"%(mermaid_answer.answer_a))
+        ask1 = int(input("1 - 궁금해요! \n2 - 빨리 시작이나 합시다!\n"))
+        if ask1 == 1:
+            print("%s"%(mermaid_answer.answer_b))
+            print("소라게에게 약을 사기 위해선 코인이 필요해요!\n이곳에서 %s"%(mermaid_answer.answer_c))
+            break
+        else:
+            print("그럼, 그냥 바로 코인을 얻는 방법을 알려드릴게요~\n%s"%(mermaid_answer.answer_c))
+            break
+        break
+    #약 | 코인
     elif ask == 2:
         print("%s"%(mermaid_answer.answer_b))
+        print("소라게에게 약을 사기 위해선 코인이 필요해요!")
+        input()
+        print("\n이곳에서 %s"%(mermaid_answer.answer_c))
+        break
     else:
-        print("다시 질문해주세요!")
+        print("다시 질문해주세요!\n")
         continue
 
+# intro - 게임 진행
+print("어딜 가볼까요?")
+print("%s\n%s\n%s"%(map.stage_1,map.stage_2,map.stage_3))
+# Stage1 - 진주 가게에서 알바
+"""
+if map == 1:
+    print
 
 
-# Stage2 - 진주 가게에서 알바
-# Stage2.1 - 진주를 빼앗긴 조개와의 전투
+# Stage1.1 - 진주를 빼앗긴 조개와의 전투
+
+class
 
 
 
-# Stage3 - 미역 가게에서 알바
 
+# Stage2 - 미역 가게에서 알바
 
-# Stage3.1 - 흘러 들어온 미역을 되찾기 위해 온 미역 양식업주
+# Stage2.1 - 흘러 들어온 미역을 되찾기 위해 온 미역 양식업주"""
+
