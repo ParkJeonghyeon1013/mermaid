@@ -1,14 +1,13 @@
+# 모듈 불러 올 때 : from 파일이름 import 함수 이름
+from s3_crab import less
+from s3_crab import enough
+from map import seaweed
+
 class mermaid:
     name = "박"
     HP = 100
     SP = 5
-    coin = 0
-
-class pearl:
-    print("진주 사장")
-
-class seaweed:
-    print("미역")
+    coin = 100
 
 class user_ask:
     a = "코인이 얼마나 있는지 묻는다"
@@ -20,12 +19,7 @@ class mermaid_answer:
     answer_a = "지금 %s원 정도 있네요~"%mermaid.coin
     answer_b = "인간이 되는 약은 약쟁이 소라게에게 살 수 있어요!!"
     answer_c = "코인 버는 방법은 2가지가 있어요~\n\n첫 번째는 진주 가게에서 알바 하는 것!\n두 번째는 미역 가게에서 알바 하는 것!\n"
-
-class map:
-    stage_1 = "1 - 미역 공장 가본다"
-    stage_2 = "2 - 진주 가게에 가본다"
-    stage_3 = "3 - 약쟁이 소라게에게 가본다"
-    
+  
 # 시작할지 말지 선택
 print("바닷속에 살던 인어는 자신과 생김새가 똑같은 육지의 인간을 발견합니다.\n행복해보이는 이들의 삶을 동경하게 된 인어는 사람이 되고자 인간이 되는 약을 사려고 하네요.")
 
@@ -82,63 +76,47 @@ while True:
         continue
 
 # intro - 게임 진행
-"""import map
-print(map.full_map)
+"""import map:
+    print(map.full_map)
 """
-# Stage1 - 진주 가게에서 알바
+# Stage1 - 미역 가게에서 알바
 
 
-# Stage1.1 - 진주를 빼앗긴 조개와의 전투
+# Stage1.1 - 흘러 들어온 미역을 되찾기 위해 온 미역 양식업주
 
 
 
+# Stage2 - 진주  가게에서 알바
 
-# Stage2 - 미역 가게에서 알바
+# Stage2.1 - 진주를 빼앗긴 조개와의 전투
 
-# Stage2.1 - 흘러 들어온 미역을 되찾기 위해 온 미역 양식업주
 
 
 # Stage3 - 소라게 [코인없음 / 코인 다 채움 [얼마나 죽였느냐에 따라 Bad/ Good ending]]
 
 #less_money
 if mermaid.coin < 100:
-    print("[소라게]: 코인도 없는게 어디서! %s코인 더 벌어와!"%(100-mermaid.coin))
+    less(mermaid.coin)
+
 #enough_money
-elif coin >= 100:
-    print("[소라게]: 코인을 다 벌었나보군? 그렇게 인간이 되고 싶어하는 이유가 대체 뭔지...")
-    input()
-    print("[소라게]: 물약 여기있다! 먹기 전 주의 사항이... 하나 있는데...\n")
-    while True:
-        ending = int(input("1 - 주의 사항을 듣고 마실지 말지 결정한다\n2 - 듣지 않고 바로 마신다\n"))
-        #주의 사항을 듣고
-        if ending == 1:
-            print("[소라게]: 이 물약은 마시는 사람에 따라 결과가 다르게 나타나. 그동안 코인을 위해 저질렀던 더러운 일이 있다면 마시지 않는게 좋을껄?")
+elif mermaid.coin >= 100:
+    enough(mermaid.coin)
 
-            ending2 = int(input("1 - 마신다\n2 - 그냥 인어로 살아간다\n"))
-                     
-            if ending2 == 1:
-                print("\n(꿀꺽)\n")
-                break
-            
-            elif ending2 == 2:
-                print("[인어 이름 어쩌구]: 코인을 얻기 위해 너무 많은 피를 묻혔어. 그냥 난 이렇게 살아갈래... 도와줘서 고마워")
-                input()
-                print("소라게의 의미심장한 미소와 함께 파도가 갑작스럽게 몰려든다.\n\n(꿀꺽)\n\n물약이 인어의 입 안으로 한 방울 떨어졌다.")
-                break
-            break
-        #주의 사항을 듣지 않고
-        elif ending == 2:
-            print("\n(꿀꺽)\n")
-            print("[소라게]: 엥? 그냥 이렇게 마셔버린다고? 후회할 텐데...")
-            break
-        else:
-            print("다시 한 번 생각해보자")
-            continue
 
-"""import random
+#random 모듈 불러오는 방법
+"""
+import random
 
 coin=random.randrange(0,200)
 print(coin)
+
+
+다리가 생겼다
+
+ (⊙.⊙)
+ㅡ ㅁ ㅡ
+   |    |
 """
+
 
 
