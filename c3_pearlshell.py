@@ -1,6 +1,6 @@
 class mini2_NPC():
-    def __init__(self,flag,win2,lose2,ai_num):
-        self.flag = flag
+    def __init__(self,name,win2,lose2,ai_num):
+        self.name = name
         self.ai_num = ai_num
         self.win2 = win2
         self.lose2 = lose2
@@ -8,7 +8,7 @@ class mini2_NPC():
     def children_win(self):
         self.win2 += 1
         
-    # 애가 져서 기분 나빠짐. 코인 10개 주고 사탕 사줘야 풀
+    # 애가 져서 기분 나빠짐
     def children_lose(self):
         self.lose2 += 1
         

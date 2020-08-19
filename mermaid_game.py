@@ -7,10 +7,6 @@ from map import choose
 
 #아스키코드
 import random
-coin=random.randrange(97,122)
-print(chr(coin))
-m1_ran = random.randrange(1,4)
-print(m1_ran)
 
 class user_ask:
     a = "코인이 얼마나 있는지 묻는다"

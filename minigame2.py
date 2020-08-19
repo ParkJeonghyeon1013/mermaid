@@ -22,21 +22,21 @@ def rps():
         # 내가 바위 냈을 때
         elif me_rps == '바위' and ai_rps == 1:
             print("[{0}] 인어: {1} vs [진주아이]: 가위\n결과: [{2}] 인어 승".format(mermaid.name, me_rps, mermaid.name))
-            return 1
+            return 2
         elif me_rps == '바위' and ai_rps == 2:
             print("[{0}] 인어: {1} vs [진주아이]: 바위\n결과: 무승부".format(mermaid.name, me_rps))
             continue
         elif me_rps == '바위' and ai_rps == 3:
             print("[{0}] 인어: {1} vs [진주아이]: 보\n결과: 진주아이 승".format(mermaid.name, me_rps))
-            return 2
+            return 1
 
         # 내가 보 냈을 때
         elif me_rps == '보' and ai_rps == 1:
             print("[{0}] 인어: {1} vs [진주아이]: 가위\n결과: 진주아이 승".format(mermaid.name, me_rps))
-            return 2
+            return 1
         elif me_rps == '보' and ai_rps == 2:
             print("[{0}] 인어: {1} vs [진주아이]: 바위\n결과: [{2}] 인어 승".format(mermaid.name, me_rps, mermaid.name))
-            return 1
+            return 2
         elif me_rps == '보' and ai_rps == 3:
             print("[{0}] 인어: {1} vs [진주아이]: 보\n결과: 무승부".format(mermaid.name, me_rps))
             continue
@@ -55,10 +55,15 @@ def minigame2_1_att ():
 
     win = 0
     lose = 0
-    
+
+    print("\n------------------------------------------------------------------------------\n")
+    print("[{0}] 인어: 이번엔 제가 공격이에요!".format(mermaid.name))
+
+
     for mininum2_1 in range(1, 6, 1):
         input("\n------------------------------------------------------------------------------\n")
         print("<<< 공격 {0} >>>".format(mininum2_1))
+
         while True:
             print("1- {0} / 2- {1} / 3- {2} / 4- {3}\n5- {4} / 6- {5}\n7- {6} / 8- {7}\n".format(flag_list[0], flag_list[1], flag_list[2], flag_list[3], flag_list[4], flag_list[5], flag_list[6], flag_list[7]))
             flag_command = str(input("[{0}] 인어: 공격 명령을 입력해주세요!\n".format(mermaid.name)))
@@ -164,7 +169,7 @@ def minigame2_1_att ():
                     win += 1
                     break
                 else:
-                    print("[진주 아이]: 휙! ): 백기를 린다")
+                    print("[진주 아이]: 휙! ): 백기를 내린다")
                     lose += 1
                     break
 
@@ -182,18 +187,20 @@ def minigame2_1_def ():
     win = 0
     lose = 0
 
-    children1 = mini2_NPC("bb", 0, 0, 0)
-    print("청기 올리기 - b / 청기 내리기 - bb\n백기 올리기 - n\n백기 내리기 - nn")
-    print("4초 안에 입력하세요.")
+    children1 = mini2_NPC("[진주 아이]", 0, 0, 0)
+    print("\n------------------------------------------------------------------------------\n")
+    print("[{0}] 인어: 이번엔 제가 수비예요!\n".format(mermaid.name))
+    print("청기 올리기 - b / 청기 내리기 - bb\n백기 올리기 - n / 백기 내리기 - nn\n")
+    print("3초 안에 입력하세요.")
 
     for mininum2_1 in range(1, 6, 1):
-        input("수비 {0}------------------------------------------------------------------------\n".format(mininum2_1))
+        input("\n수비 {0}------------------------------------------------------------------------\n".format(mininum2_1))
 
         flag_command = random.randrange(1, 9)
         
         s = time.ctime()
         second = int(s[17])*10+int(s[18])+60
-        timer = second+4
+        timer = second+3
         
         # 8가지의 상황 - 청기 올려
         if flag_command == 1:
@@ -244,7 +251,6 @@ def minigame2_1_def ():
             else:
                 print("[{0}] 인어: 휙! ): 뭔가 잘못올렸다.".format(mermaid.name))
                 lose += 1
-
                 
         # 8가지의 상황 - 백기 올려
         elif flag_command == 2:
@@ -316,7 +322,7 @@ def minigame2_1_def ():
                         lose += 1
                             
                     elif game <= timer:
-                        print("[{0}]: 휙! (; 청기를 올린다".format(mermaid.name))
+                        print("[{0}]: 휙! (; 청기를 내린다".format(mermaid.name))
                         win += 1
                             
                 # 일반적인 경우         
@@ -330,7 +336,7 @@ def minigame2_1_def ():
                         lose += 1
                   
                     elif game <= timer:
-                        print("[{0}]: 휙! (; 청기를 올린다".format(mermaid.name))
+                        print("[{0}]: 휙! (; 청기를 내린다".format(mermaid.name))
                         win += 1
                         
             elif flag_act == 'b':
@@ -353,7 +359,7 @@ def minigame2_1_def ():
             game = int(after_entering[17]) * 10 + int(after_entering[18]) + 60
             print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
             
-            if flag_act == 'n':
+            if flag_act == 'nn':
                 
                 # 게임 시작할 때의 시간이 56 57 58 59 였을 때 후에 받는 after 시간이 1,2,3이 됨으로 60을 한 번 더 더해줘야 함
                 if game <= second:
@@ -366,7 +372,7 @@ def minigame2_1_def ():
                         lose += 1
                             
                     elif game <= timer:
-                        print("[{0}]: 휙! (; 청기를 올린다".format(mermaid.name))
+                        print("[{0}]: 휙! (; 백기를 내린다".format(mermaid.name))
                         win += 1
                             
                 # 일반적인 경우         
@@ -380,7 +386,7 @@ def minigame2_1_def ():
                         lose += 1
                   
                     elif game <= timer:
-                        print("[{0}]: 휙! (; 청기를 올린다".format(mermaid.name))
+                        print("[{0}]: 휙! (; 백기를 내린다".format(mermaid.name))
                         win += 1
                         
             elif flag_act == 'bb':
@@ -389,8 +395,8 @@ def minigame2_1_def ():
             elif flag_act == 'b':
                 print("[{0}]: 휙! :(  청기를 올린다".format(mermaid.name))
                 lose += 1
-            elif flag_act == 'nn':
-                print("[{0}]: 휙! :(  백기를 내린다".format(mermaid.name))                
+            elif flag_act == 'n':
+                print("[{0}]: 휙! :( 백기를 올린다".format(mermaid.name))
                 lose += 1
             else:
                 print("[{0}] 인어: 휙! ): 뭔가 잘못올렸다.".format(mermaid.name))
@@ -416,7 +422,7 @@ def minigame2_1_def ():
                         lose += 1
                             
                     elif game <= timer:
-                        print("[{0}]: 휙! (; 청기를 올린다".format(mermaid.name))
+                        print("[{0}]: 휙! (; 백기를 올린다".format(mermaid.name))
                         win += 1
                             
                 # 일반적인 경우         
@@ -430,7 +436,7 @@ def minigame2_1_def ():
                         lose += 1
                   
                     elif game <= timer:
-                        print("[{0}]: 휙! (; 청기를 올린다".format(mermaid.name))
+                        print("[{0}]: 휙! (; 백기를 올린다".format(mermaid.name))
                         win += 1
                         
             elif flag_act == 'bb':
@@ -516,7 +522,7 @@ def minigame2_1_def ():
                         lose += 1
                             
                     elif game <= timer:
-                        print("[{0}]: 휙! (; 청기를 올린다".format(mermaid.name))
+                        print("[{0}]: 휙! (; 백기를 내린다".format(mermaid.name))
                         win += 1
                             
                 # 일반적인 경우         
@@ -530,7 +536,7 @@ def minigame2_1_def ():
                         lose += 1
                   
                     elif game <= timer:
-                        print("[{0}]: 휙! (; 청기를 올린다".format(mermaid.name))
+                        print("[{0}]: 휙! (; 백기를 내린다".format(mermaid.name))
                         win += 1
                         
             elif flag_act == 'bb':
@@ -566,7 +572,7 @@ def minigame2_1_def ():
                         lose += 1
                             
                     elif game <= timer:
-                        print("[{0}]: 휙! (; 청기를 올린다".format(mermaid.name))
+                        print("[{0}]: 휙! (; 청기를 내린다".format(mermaid.name))
                         win += 1
                             
                 # 일반적인 경우         
@@ -580,7 +586,7 @@ def minigame2_1_def ():
                         lose += 1
                   
                     elif game <= timer:
-                        print("[{0}]: 휙! (; 청기를 올린다".format(mermaid.name))
+                        print("[{0}]: 휙! (; 청기를 내린다".format(mermaid.name))
                         win += 1
                         
             elif flag_act == 'b':
@@ -605,67 +611,83 @@ def minigame2_1_def ():
 def minigame2_2_att ():
     children1 = mini2_NPC("[진주 아이]", 0, 0, 0)
     knife = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-    boom = knife[random.randrange(1, 16)]
+    boom = random.choice(knife)
+
     print("Boom 번호: {0}".format(boom))
+    print("\n[{0}] 인어: 저부터 시작할게요!".format(mermaid.name))
 
     for i in range(1, 16, 1):
+        input("\n------------------------------------------------------------------------------\n")
         print("<<<{0}번째 턴>>>".format(i))
 
         # 인어 선택
-        mer_pick = str(input("{0} 인어:\n{1} 중 하나의 칼을 선택해주세요!\n".format(mermaid.name, knife)))
+        while True:
+            mer_pick = int(input("\n[{0}] 인어:\n{1} 중 하나의 칼을 선택해주세요!\n".format(mermaid.name, knife)))
 
-        if boom == int(mer_pick):
-            print("튕! 통아저씨가 튀어올랐습니다.\n{0} 인어 패배".format(mermaid.name))
-            return children1.name
+            # 숫자가 입력되었을 때
+            if mer_pick in knife:
+                if boom == int(mer_pick):
+                    print("튕! 통아저씨가 튀어올랐습니다.\n[{0}] 인어 패배".format(mermaid.name))
+                    return children1.name
 
-        else:
-            print("{0} 인어 통과".format(mermaid.name))
-            del (knife[(int(mer_pick) - 1)])
+                else:
+                    print("[{0}] 인어 통과".format(mermaid.name))
+                    knife.remove(mer_pick)
 
-            # 진주 아이 선택
-            child_pick = knife[random.randrange(0, (len(knife) + 1))]
-            print("[진주 아이]: 저는 {0}번 칼을 꽂아볼래요!".format(int(child_pick + 1)))
+                    # 진주 아이 선택
+                    child_pick = random.choice(knife)
+                    print("\n[진주 아이]: 저는 {0}번 칼을 꽂아볼래요!".format(child_pick))
 
-            if boom == child_pick:
-                print("튕! 통아저씨가 튀어올랐습니다.\n[진주아이] 패배")
-                return mermaid.name
+                    if boom == child_pick:
+                        print("튕! 통아저씨가 튀어올랐습니다.\n[진주아이] 패배")
+                        return mermaid.name
+                    else:
+                        print("[진주 아이] 통과")
+                        knife.remove(child_pick)
+                        continue
             else:
-                print("[진주 아이] 통과")
-                del (knife[(int(child_pick) - 1)])
+                print("다른 칼을 골라주세요!")
                 continue
 
 # 게임 모듈 (2) - 수비
 def minigame2_2_def ():
     children1 = mini2_NPC("[진주 아이]", 0, 0, 0)
     knife = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-    boom = knife[random.randrange(1, 16)]
+    boom = random.choice(knife)
     print("Boom 번호: {0}".format(boom))
 
     for i in range(1, 16, 1):
+        input("\n------------------------------------------------------------------------------\n")
         print("<<<{0}번째 턴>>>".format(i))
 
         # 진주 아이 선택
-        child_pick = knife[random.randrange(0, (len(knife) + 1))]
-        print("[진주 아이]: {0}번 칼을 꽂아볼게요!".format(int(child_pick + 1)))
+        child_pick = random.choice(knife)
+        print("[진주 아이]: {0}번 칼을 꽂아볼게요!".format(child_pick))
 
         if boom == child_pick:
             print("튕! 통아저씨가 튀어올랐습니다.\n[진주아이] 패배")
             return mermaid.name
         else:
             print("[진주 아이] 통과")
-            del (knife[(int(child_pick) - 1)])
+            knife.remove(child_pick)
 
-            # 인어 선택
-            mer_pick = str(input("{0} 인어:\n{1} 중 하나의 칼을 선택해주세요!\n".format(mermaid.name, knife)))
+            while True:
+                # 인어 선택
+                mer_pick = int(input("[{0}] 인어:\n{1} 중 하나의 칼을 선택해주세요!\n".format(mermaid.name, knife)))
 
-            if boom == int(mer_pick):
-                print("튕! 통아저씨가 튀어올랐습니다.\n{0} 인어 패배".format(mermaid.name))
-                return children1.name
+                if mer_pick in knife:
+                    if boom == int(mer_pick):
+                        print("튕! 통아저씨가 튀어올랐습니다.\n[{0}] 인어 패배".format(mermaid.name))
+                        return children1.name
 
-            else:
-                print("{0} 인어 통과".format(mermaid.name))
-                del (knife[(int(mer_pick) - 1)])
-                continue
+                    else:
+                        print("[{0}] 인어 통과".format(mermaid.name))
+                        knife.remove(mer_pick)
+                        continue
+
+                else:
+                    print("다른 칼을 골라주세요!")
+                    continue
 
 # 게임 모듈 (3)
 # 진주 잃은 조개가 쳐들어오는데 사장은 튀튀 = 인어 눈물을 잘 활용해보라고 이야기 함
