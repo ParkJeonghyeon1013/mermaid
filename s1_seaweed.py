@@ -1,7 +1,9 @@
 import random
-import time
 from c1_character import mermaid
-from minigame1 import minigame1_1,minigame1_2,minigame1_3,mini1_health
+from c2_seaweed_hunter import mini1_NPC
+from minigame1 import minigame1_1, minigame1_2, minigame1_3, mini1_health
+
+# 08.21까지 stage1의 멘트 수정하면 됨!
 
 # Stage1 - 미역 가게에서 알바
 def s1_intro(name):
@@ -10,58 +12,61 @@ def s1_intro(name):
     print("[%s] 인어: 미역 알바를 좀 하려구요!\n"%name)
     input("------------------------------------------------------------------------------\n")
     print("[미역 사장]: 그래, 그래~ 코인이 필요하다.. 이말이죠??\n코인을 버는 방법은 간단해요.")
-    print("\n※갑자기 공격해오는 적을 조심하세요!\n※공격 및 미역 채취 방법은 화면에 뜨는 알파벳을 제한시간 내에 입력하면 됩니다!\n※첫 글자는 대문자, 나머지는 소문자로 이뤄져있습니다!\n")
+    print("\n※ 갑자기 공격해오는 적을 조심하세요!\n※ 공격 및 미역 채취 방법은 화면에 뜨는 알파벳을 제한시간 내에 입력하면 됩니다!\n※ 첫 글자는 대문자, 나머지는 소문자로 이뤄져있습니다!\n")
     input("------------------------------------------------------------------------------\n")    
     print("[%s] 인어: 아, 잠깐! 그럼 코인은 얼마나 줄 수 있는거죠?"%name)
     print("[미역 사장]: 미역 한 줄기에 10코인씩 줄게. 대신 50코인 이상은 못 줍니다!")
 
 # Stage1 - 알파벳 똑같이 입력하기 게임 진행 후 50코인 얻을 수 있음.
 def s1_game():
-    from c1_character import mermaid
-    kill = 0
     print("""
       ~~~~풍덩!!!!~~ ~~~~~     ~~~~~~~~   ~~~~~~~~~~~~~~~~
                     ~~~~~   ~~~~~~~~~~~~~        ~~~~~~~~
       ~~~ ~~~~~~~~~    ~~~~~~~~~~~~       ~~~~~~~~~~~
-                                 헤엄 치는 중
+                      헤엄 치는 중
        ~~~~~~~ ~~~~~     ~~~~~~~~   ~~~~~~~~~~~~~~~~
-           ~~~~~   ~~~~~~~~~~~~~        ~~~~~~~~
+           ~~~~~ I   ~~~~~~~~~ N ~~~~     G     ~~~~~~~~
       ~~~ ~~~~~~~~~    ~~~~~~~~~~~~       ~~~~~~~~~~~""")
     input("\n------------------------------------------------------------------------------\n")
 
-#첫번째 선택이 stage1인 경우 (코인이 50보다 적을 경우)
-    if mermaid.coin < 50:
-        
-        #미니게임으로 코인이 50개 이상 모일 때 까지
+    # 첫번째 선택이 stage1인 경우 (코인이 50보다 적을 경우)
+    # 굳이 이거 사용하지 않아도 될듯하지만 일단 복잡하니까 놔두기
+    if mermaid.coin <= 50:
+
+        # 미니게임으로 코인이 50개 이상 모일 때 까지
         coin = mermaid.coin
 
-        #1 2 3 별 미역 양식장 주인 / 따개비, 거북손 / 미역 발견
-        while mermaid.coin < 50:
-            mini_num = random.randrange(1,4)
+        # 1 2 3 별 미역 양식장 주인 / 따개비, 거북손 / 미역 발견
+        while mini1_NPC.seaweed_count < 5:
+            print('''여기여기여기여기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!''''')
+            mini_num = random.randrange(1, 4)
 
+            # 1은 미역 양식장 주인이 공격하는 것 승리시 kill 포인트가 쌓이지만 피해는 없고, 패배시 hp 깎인다
             if mini_num == 1:
-                print("1은 미역 양식장 주인이 공격하는 것\n승리시 피해 없지만, 패배시 hp 깎인다")
                 minigame1_1()
-                continue
-                
-            elif mini_num == 2:
-                print("2는 접착식 거북손, 따개비 발견 \n homi로 뗄 수 있음. kill 포인트가 쌓이고, 패배시 hp 깎인다\n")
-                minigame1_2()
-                continue
-            
-            elif mini_num == 3:
-                print("3은 미역 발견\n 승리시 10개의 코인을 얻을 수 있지만, 패배시 아무 변화 없음")
-                minigame1_3()
+                if mermaid.HP <= 25:
+                    mini1_health()
                 continue
 
-            elif mermaid.HP <= 10:
-                mini1_health()
+            # 2는 접착식 거북손, 따개비 발견 \n Homi 로 뗄 수 있음. kill 포인트가 쌓이고, 패배시 hp 깎인다
+            elif mini_num == 2:
+                minigame1_2()
+                if mermaid.HP <= 25:
+                    mini1_health()
+                continue
+
+            # 3은 미역 발견 / 승리시 10개의 코인을 얻을 수 있지만, 패배시 아무 변화 없음
+            elif mini_num == 3:
+                minigame1_3()
                 continue
             
 def s1_outro():
-    print("최종적으로 돈 얼마 줬는지 확인")
-                
-
+    print("[미역 사장]: 오~ 미역 5개는 다 모아오셨나? 어디 한번 채취한 걸 꺼내봐!\n미역 외에도 따개비나 거북손이 있으면 추가적으로 돈을 주지!")
+    print("[{0}] 인어: 여기요!".format(mermaid.name))
+    input("\n-------------------------------------- 턱! ----------------------------------------\n")
+    print("[미역 사장]: 미역 5개에 추가적으로 {0}개의 북손이와 따개비를 가져왔구만!\n총 {1}코인 주도록 하지! 수고했어!".format(mini1_NPC.shell_count, (mini1_NPC.shell_count*5 + mini1_NPC.seaweed_count*10)))
+    print("[{0}] 인어: 감사합니다!! 벌써 {1}코인이 모였어~".format(mermaid.name, mermaid.coin))
+    input("\n------------------------------------------------------------------------------\n")
 
 """
 #두번째 선택이 stage1인 경우 (코인이 50보다 많을 경우)
@@ -69,9 +74,4 @@ def s1_outro():
         #미니게임으로 코인이 100개 이상 모일 때 까지
         while m_coin >=100:
             seaweed = random.randrange(1,7)    
-
-
-    return kill
-
-# Stage1.1 - 흘러 들어온 미역을 되찾기 위해 온 미역 양식업주 (어떤 게임을 통해서 진행할 것인지.)
-# 코인이 0보다 적을 때 어떻게 할 것인지 방안 찾기"""
+"""

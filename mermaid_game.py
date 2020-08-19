@@ -1,8 +1,9 @@
 # 모듈 불러 올 때 : from 파일이름 import 함수 이름
-from s1_seaweed import s1_intro, s1_game
+from c1_character import mermaid
+from s1_seaweed import s1_intro, s1_game, s1_outro
+from s2_pearl import s2_intro, s2_game, s2_outro
 from s3_crab import less, enough
 from map import choose
-from c1_character import mermaid
 
 #아스키코드
 import random
@@ -23,7 +24,7 @@ class mermaid_answer:
     answer_c = "코인 버는 방법은 2가지가 있어요~\n\n첫 번째는 진주 가게에서 알바 하는 것!\n두 번째는 미역 가게에서 알바 하는 것!\n"
   
 # 시작할지 말지 선택
-print("--------------게임 진행 시 대화는 enter 혹은 숫자키로 진행됩니다-------------\n\n                                 *Mermaid to Human*\n")
+print("--------------게임 진행 시 대화는 enter 혹은 숫자키로 진행됩니다-------------\n\n                     *Mermaid to Human*\n")
 print("바닷속에 살던 인어는 자신과 생김새가 똑같은 육지의 인간을 발견합니다.\n행복해보이는 이들의 삶을 동경하게 된 인어는 사람이 되고자 인간이 되는 약을 사려고 하네요.")
 
 while True:
@@ -40,10 +41,11 @@ while True:
         continue
 
 # intro - 게임 map에 대한 설명
-print("""~~~~~~~ ~~~~~     ~~~~~~~~   ~~~~~~~~~~~~~~~~
+print("""
+     ~~~~~~~ ~~~~~     ~~~~~~~~   ~~~~~~~~~~~~~~~~
            ~~~~~   ~~~~~~~~~~~~~        ~~~~~~~~
       ~~~ ~~~~~~~~~    ~~~~~~~~~~~~       ~~~~~~~~~~~
-                                  여기는 깊은 심해
+                     여기는 깊은 심해
        ~~~~~~~ ~~~~~     ~~~~~~~~   ~~~~~~~~~~~~~~~~
            ~~~~~   ~~~~~~~~~~~~~        ~~~~~~~~
       ~~~ ~~~~~~~~~    ~~~~~~~~~~~~       ~~~~~~~~~~~""")
@@ -89,46 +91,93 @@ while True:
 # intro - 게임 진행
 input("------------------------------------------------------------------------------\n")
 stage = 0
-map_num=choose(stage)
-
+map_num = choose(stage)
 
 # Stage1 - 미역 가게에서 알바
 if map_num == '1':
     s1_intro(mermaid.name)
     s1_game()
+    s1_outro()
     stage = 1
-    
+    map_num = choose(stage)
+
+    # 미역 - 진주가게 - 소라게
+    if map_num == '1':
+        print("미역 - 진주가게 - 소라게")
+
+    # 미역 - 소라게 - 진주가게 - 소라게
+    elif map_num == '2':
+        print("미역 - 소라게 - 진주가게 - 소라게")
+
 
 # Stage2 - 진주  가게에서 알바
 elif map_num == '2':
-    print("진주 가게 준비중")
+    s2_intro(mermaid.name)
+    s2_game()
+    s2_outro()
     stage = 2
-    
+    map_num = choose(stage)
+
+    # 진주 - 미역 - 소라게
+    if map_num == '1':
+        print("진주 - 미역 - 소라게")
+
+    # 진주 - 소라게  - 미역 - 소라게
+    elif map_num == '2':
+        print(" 진주 - 소라게  - 미역 - 소라게")
+
 
 # Stage3 - 소라게 [코인없음 / 코인 다 채움 [얼마나 죽였느냐에 따라 Bad/ Good ending]]
 elif map_num == '3':
-        #less_money
+    # less_money
     if mermaid.coin < 100:
         less(mermaid.coin)
         print("------------------------------------------------------------------------------\n")
-        stage = 3
-        map_num=choose(stage)
 
-        #enough_money
+        stage = 3
+        map_num = choose(stage)
+
+        # 소라게 - 미역
+        if map_num == '1':
+            s1_intro(mermaid.name)
+            s1_game()
+            s1_outro()
+            stage = 1
+            map_num = choose(stage)
+
+            # 미역 - 진주가게 - 소라게
+            if map_num == '1':
+                print("미역 - 진주가게 - 소라게")
+
+            # 미역 - 소라게 - 진주가게 - 소라게
+            elif map_num == '2':
+                print("미역 - 소라게 - 진주가게 - 소라게")
+
+
+        # 소라게 - 진주
+        elif map_num == '2':
+            print("진주 가게 준비중")
+            stage = 2
+            map_num = choose(stage)
+
+            # 진주 - 미역 - 소라게
+            if map_num == '1':
+                print("진주 - 미역 - 소라게")
+
+            # 진주 - 소라게  - 미역 - 소라게
+            elif map_num == '2':
+                print(" 진주 - 소라게  - 미역 - 소라게")
+
+    # enough_money
     elif mermaid.coin >= 100:
         enough(mermaid.coin)
-        
-# map num변수가 잘못되어있을 때
+
+# map num 변수가 잘못되어있을 때
 else:
     print("잘못 입력하셨습니다.")
 
-#random 모듈 불러오는 방법
-                    
-"""import random
 
-coin=random.randrange(0,200)
-print(coin)
-
+"""
 14~1
 
 다리가 생겼다
