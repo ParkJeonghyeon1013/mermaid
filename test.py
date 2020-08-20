@@ -1,11 +1,10 @@
 import random
 from c1_character import mermaid
+from s1_seaweed import s1_intro, s1_game, s1_outro
+from s2_pearl import s2_intro, s2_game1, s2_game2, s2_outro
+from s3_crab import less, enough
+from map import choose
 
-knife = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
-for i in range (5):
-    child_pick = random.choice(knife)
-    print("knife 리스트는: {0}".format(knife))
-    print(child_pick)
-    knife.remove(child_pick)
-    print("삭제된 knift 리스트는: {0}\n".format(knife))
+num = s2_game1()
+s2_game2(num)

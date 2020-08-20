@@ -1,9 +1,11 @@
-class mini2_NPC():
-    def __init__(self,name,win2,lose2,ai_num):
+from c1_character import mermaid
+
+class mini2_NPC ():
+    def __init__(self, name, win2, lose2, pay):
         self.name = name
-        self.ai_num = ai_num
         self.win2 = win2
         self.lose2 = lose2
+        self.pay = pay
         
     def children_win(self):
         self.win2 += 1
@@ -11,8 +13,17 @@ class mini2_NPC():
     # 애가 져서 기분 나빠짐
     def children_lose(self):
         self.lose2 += 1
-        
 
+    def pearl_pay(self):
+        if self.win2 >= 1:
+            self.pay += 20
+            mermaid.coin += self.pay
+
+        else:
+            mermaid.coin += self.pay
+
+
+children = mini2_NPC("진주 아이", 0, 0, 50)
 
 """class Character:
     #hp = 0

@@ -1,9 +1,11 @@
-#less_money
-def less(coin):
-    print("[소라게]: 코인도 없는게 어디서! %s코인 더 벌어와!"%(100-coin))
+from c1_character import mermaid
 
-#enough_money
-def enough(coin):
+# less_money
+def less():
+    print("[소라게]: 코인도 없는게 어디서! %s코인 더 벌어와!" % (100-mermaid.coin))
+
+# enough_money
+def enough():
     print("[소라게]: 코인을 다 벌었나보군? 그렇게 인간이 되고 싶어하는 이유가 대체 뭔지...")
     print("[소라게]: 물약 여기있다! 먹기 전 주의 사항이... 하나 있는데...\n")
     input()

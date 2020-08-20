@@ -1,21 +1,19 @@
 # 모듈 불러 올 때 : from 파일이름 import 함수 이름
 from c1_character import mermaid
 from s1_seaweed import s1_intro, s1_game, s1_outro
-from s2_pearl import s2_intro, s2_game, s2_outro
+from s2_pearl import s2_intro, s2_game1, s2_game2, s2_outro
 from s3_crab import less, enough
 from map import choose
 
-#아스키코드
-import random
 
-class user_ask:
+class user_ask ():
     a = "코인이 얼마나 있는지 묻는다"
     b = "인간이 되는 약에 대해 묻는다"
     c = "코인 버는 방법을 묻는다"
     d = "소라게에게 간다"
     
-class mermaid_answer:
-    answer_a = "지금 %s 코인 정도 있네요~"%mermaid.coin
+class mermaid_answer ():
+    answer_a = "지금 %s 코인 정도 있네요~" % mermaid.coin
     answer_b = "인간이 되는 약은 약쟁이 소라게에게 살 수 있어요!!"
     answer_c = "코인 버는 방법은 2가지가 있어요~\n\n첫 번째는 진주 가게에서 알바 하는 것!\n두 번째는 미역 가게에서 알바 하는 것!\n"
   
@@ -91,7 +89,7 @@ map_num = choose(stage)
 
 # Stage1 - 미역 가게에서 알바
 if map_num == '1':
-    s1_intro(mermaid.name)
+    s1_intro()
     s1_game()
     s1_outro()
     stage = 1
@@ -109,7 +107,8 @@ if map_num == '1':
 # Stage2 - 진주  가게에서 알바
 elif map_num == '2':
     s2_intro(mermaid.name)
-    s2_game()
+    next_game = s2_game1()
+    s2_game2(next_game)
     s2_outro()
     stage = 2
     map_num = choose(stage)
@@ -135,7 +134,7 @@ elif map_num == '3':
 
         # 소라게 - 미역
         if map_num == '1':
-            s1_intro(mermaid.name)
+            s1_intro()
             s1_game()
             s1_outro()
             stage = 1

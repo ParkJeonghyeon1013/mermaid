@@ -1,7 +1,8 @@
-import random
 import time
+import random
 from c1_character import mermaid
 from c2_seaweed_hunter import mini1_NPC
+
 
 """
 now = datetime.datetime.now()
@@ -123,7 +124,6 @@ def minigame1_2 ():
                     print("주머니에 넣어둔 호미가 갑자기 사라졌어요... 따개비 채취에 실패했습니다.")
                     input("------------------------------------------------------------------------------\n")   
                     break
-                break
 
             elif m1_choose == '2':
                 print("생명은 소중한 것 같아요. 미역이나 찾으러 가볼까요?")
@@ -134,10 +134,8 @@ def minigame1_2 ():
                 print("선택 방안은 두 가지 뿐입니다. 다시 선택해주세요.")
                 continue
 
-            break
-
 # 2가 나왔을 경우 따개비 채취
-    elif m1_ran ==2 :
+    elif m1_ran == 2:
         print("2 - 따개비를 발견했습니다!\n굳이 채취하지 않아도 되지만, 코인은 좀 챙길 수 있을 것 같은데요?\n\n")
 
         while True:
