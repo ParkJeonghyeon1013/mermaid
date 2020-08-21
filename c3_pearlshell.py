@@ -22,8 +22,8 @@ class mini2_NPC ():
         else:
             mermaid.coin += self.pay
 
-
 children = mini2_NPC("진주 아이", 0, 0, 50)
+children
 
 """class Character:
     #hp = 0

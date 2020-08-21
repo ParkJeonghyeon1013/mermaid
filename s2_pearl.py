@@ -1,6 +1,6 @@
 from c1_character import mermaid
 from c3_pearlshell import children
-from minigame2 import rps, minigame2_1_att, minigame2_1_def, minigame2_2_att, minigame2_2_def, minigame2_3
+from minigame2 import rps, minigame2_1_att, minigame2_1_def, minigame2_2_att, minigame2_2_def, minigame2_3, shell_1, shell_2, shell_3
 
 
 # Stage2 - 진주  가게에서 알바(자기 아이들을 돌봐달라는 것임)
@@ -492,10 +492,37 @@ def s2_game2 (num):
                             print("[진주 아이]: 제가 두 판을 이겼으니.. 그만해요! 어! 돌아오셨어요!")
                             children.children_win()
                             return 2
-
                     continue
-
 
 # 조개 엔딩
 def s2_outro():
     minigame2_3()
+
+    input("\n------------------------------------------------------------------------------\n")
+    print("딸랑!")
+    print("[{0}] 인어: 어서오세요~".format(mermaid.name))
+    print("[조 개]: ... 사장님 계신가요?")
+    print("[{0}] 인어: 아니요... 잠깐 어디 가셨어요".format(mermaid.name))
+
+    input("\n------------------------------------------------------------------------------\n")
+    print("[조 개]: 혹시 제 이야기 좀 들어주실래요?")
+    listen = shell_1()
+
+    if listen == '1':
+        input("\n------------------------------------------------------------------------------\n")
+        print("[조 개]: 사실 [진주 사장]님께서 제 진주를 훔쳐가셨어요...")
+        mermaid.shell_kill
+        print("[{0}] 인어: 네? 뭐라고요?!? 그래서 사장님이...".format(mermaid.name))
+        print("[조 개]: 제 동생 수술비라서 꼭 대가를 받고 팔았어야 했는데, 몰래 훔쳐갈거라곤 생각하지 못했어요...")
+        shell_2()
+        input("\n------------------------------------------------------------------------------\n")
+        print("[{0}] 인어: 신고는 하셨나요?".format(mermaid.name))
+        print("[조 개]: 아뇨, 동생 옆에서 쉴 틈이 없어서..")
+        shell_3()
+
+    elif listen == '2':
+        input("\n------------------------------------------------------------------------------\n")
+        print("딸랑\n그 자리에 서있는 [조 개]를 뒤로 하고, 인간이 되는 약을 사기 위해 나왔다")
+        print("[조 개]: 째릿.......")
+        print("[{0}] 인어: 엥? 순간 서늘한 느낌이 들었다..".format(mermaid.name))
+        mermaid.shell_kill

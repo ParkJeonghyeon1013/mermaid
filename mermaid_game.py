@@ -5,7 +5,7 @@ from s2_pearl import s2_intro, s2_game1, s2_game2, s2_outro
 from s3_crab import less, enough
 from map import choose
 
-
+"""어떻게 해야 main을 최대한 깔끔하게 만들 수 있을지 => 앞에서 이름 묻고 길 찾는 부분까지 다 모듈화 시켜버리기"""
 class user_ask ():
     a = "코인이 얼마나 있는지 묻는다"
     b = "인간이 되는 약에 대해 묻는다"
