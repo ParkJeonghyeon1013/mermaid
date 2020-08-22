@@ -3,24 +3,8 @@ import random
 from c1_character import mermaid
 from c2_seaweed_hunter import mini1_NPC
 
-
-"""
-now = datetime.datetime.now()
-print(now)          # 2018-07-28 12:11:32.669083
-
-nowDate = now.strftime('%Y-%m-%d')
-print(nowDate)      # 2018-07-28
- 
-nowTime = now.strftime('%H:%M:%S')
-print(nowTime)      # 12:11:32
- 
-nowDatetime = now.strftime('%Y-%m-%d %H:%M:%S')
-print(nowDatetime)  # 2018-07-28 12:11:32
-"""
-
 # 게임 모듈 (1)
-# 1은 미역 양식장 주인이 공격하는 것\n승리시 피해 없지만, 패배시 hp 깎인다
-
+# 1은 미역 양식장 주인이 공격하는 것 | 승리시 피해 없지만, 패배시 hp 깎인다
 def minigame1_1 ():
     print("현재 코인: {0}".format(mermaid.coin))
     print("1 - 미역 양식장 주인의 작살 공격이 시작됩니다. 5초 내로 반격해주세요.")
@@ -89,7 +73,7 @@ def minigame1_2 ():
 
 # 1이 나왔을 경우 거북손 채취
     if m1_ran == 1:
-        print("2 - 거북손을 발견했습니다!\n굳이 채취하지 않아도 되지만, 코인은 좀 챙길 수 있을 것 같은데요?\n")
+        print("2 - 거북손을 발견했습니다!\n굳이 채취하지 않아도 되지만, 코인은 좀 챙길 수 있을 것 같은데요?")
 
         # 거북손 채취 여부 선택
         while True:
@@ -106,7 +90,7 @@ def minigame1_2 ():
                     mermaid.coin += 5
                     mini1_NPC.shell_count += 1
                     print("역시 국산 호미! 거북손 채취를 성공했습니다.\n그러나, 호미질 하던 중 손에 상처를 입어 HP가 5 감소합니다\n현재 HP: {0}".format(mermaid.HP))
-                    input("------------------------------------------------------------------------------\n")
+                    input("\n------------------------------------------------------------------------------\n")
                     print(mini1_NPC.shell_count)
                     break
                     
@@ -116,13 +100,13 @@ def minigame1_2 ():
                     mermaid.coin += 5
                     mini1_NPC.shell_count += 1
                     print("외국산 호미를 사용해 거북손 채취를 성공했습니다.\n그러나, 호미질 하던 중 손에 상처를 입어 HP가 5 감소합니다\n현재 HP: {0}".format(mermaid.HP))
-                    input("------------------------------------------------------------------------------\n")
+                    input("\n------------------------------------------------------------------------------\n")
                     print(mini1_NPC.shell_count)
                     break
 
                 else:
                     print("주머니에 넣어둔 호미가 갑자기 사라졌어요... 따개비 채취에 실패했습니다.")
-                    input("------------------------------------------------------------------------------\n")   
+                    input("\n------------------------------------------------------------------------------\n")
                     break
 
             elif m1_choose == '2':

@@ -789,7 +789,7 @@ def shell_3():
             mermaid.coin += 10
             print("[{0}] 인어: 네? 아뇨!? 저기!!".format(mermaid.name))
             print("[조 개]: 정말 감사합니다!!\n")
-            print("딸랑!")
+            print("\n딸랑!")
             print("[{0}] 인어: 얼른 가서 신고한 후 다음 일정을 생각해 봐야겠어요!".format(mermaid.name))
             break
 
@@ -798,7 +798,7 @@ def shell_3():
             print("\n------------------------------------------------------------------------------\n")
             print("[{0}] 인어: 맞아요, 그냥 가야겠어요... 신고는 본인이 의지가 있으시니 꼭 하실거라고 믿어요".format(mermaid.name))
             print("[조 개]: 이렇게 이야기 들어주셔서 고마워요.. 일단 사장님이 안계시니 동생 병원에 가봐야겠어요!")
-            print("딸랑!")
+            print("\n딸랑!")
             print("[{0}] 인어: 이제 다음 일정을 생각해 봐야겠어요!".format(mermaid.name))
             break
 
