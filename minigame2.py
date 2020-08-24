@@ -238,8 +238,8 @@ def minigame2_1_def ():
             flag_act = str(input("[진주 아이]: 청기 올려!\n"))
             after_entering = time.ctime()
             game = int(after_entering[17]) * 10 + int(after_entering[18]) + 60
-            print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
-            
+            # print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
+
             if flag_act == 'b':
                 
                 # 게임 시작할 때의 시간이 56 57 58 59 였을 때 후에 받는 after 시간이 1,2,3이 됨으로 60을 한 번 더 더해줘야 함
@@ -288,8 +288,8 @@ def minigame2_1_def ():
             flag_act = str(input("[진주 아이]: 백기 올려!\n"))
             after_entering = time.ctime()
             game = int(after_entering[17]) * 10 + int(after_entering[18]) + 60
-            print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
-            
+            # print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
+
             if flag_act == 'n':
                 
                 # 게임 시작할 때의 시간이 56 57 58 59 였을 때 후에 받는 after 시간이 1,2,3이 됨으로 60을 한 번 더 더해줘야 함
@@ -338,7 +338,7 @@ def minigame2_1_def ():
             flag_act = str(input("[진주 아이]: 청기 내려!\n"))
             after_entering = time.ctime()
             game = int(after_entering[17]) * 10 + int(after_entering[18]) + 60
-            print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
+            # print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
             
             if flag_act == 'bb':
                 
@@ -388,7 +388,7 @@ def minigame2_1_def ():
             flag_act = str(input("[진주 아이]: 백기 내려!\n"))
             after_entering = time.ctime()
             game = int(after_entering[17]) * 10 + int(after_entering[18]) + 60
-            print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
+            # print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
             
             if flag_act == 'nn':
                 
@@ -438,7 +438,7 @@ def minigame2_1_def ():
             flag_act = str(input("[진주 아이]: 청기올리지 말고 백기올려!\n"))
             after_entering = time.ctime()
             game = int(after_entering[17]) * 10 + int(after_entering[18]) + 60
-            print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
+            # print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
 
             if flag_act == 'n':
                 
@@ -488,7 +488,7 @@ def minigame2_1_def ():
             flag_act = str(input("[진주 아이]: 백기올리지 말고 청기올려!\n"))
             after_entering = time.ctime()
             game = int(after_entering[17]) * 10 + int(after_entering[18]) + 60
-            print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
+            # print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
 
             if flag_act == 'b':
                 
@@ -538,7 +538,7 @@ def minigame2_1_def ():
             flag_act = str(input("[진주 아이]: 청기올리지 말고 백기내려!\n"))
             after_entering = time.ctime()
             game = int(after_entering[17]) * 10 + int(after_entering[18]) + 60
-            print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
+            # print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
             
             if flag_act == 'nn':
                 
@@ -588,7 +588,7 @@ def minigame2_1_def ():
             flag_act = str(input("[진주 아이]: 백기올리지 말고 청기내려!\n"))
             after_entering = time.ctime()
             game = int(after_entering[17]) * 10 + int(after_entering[18]) + 60
-            print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
+            # print("second: {0}/ timer: {1}/ game: {2}".format(second, timer, game))
             
             if flag_act == 'bb':
                 
@@ -643,7 +643,7 @@ def minigame2_2_att ():
     knife = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
     boom = random.choice(knife)
 
-    print("Boom 번호: {0}".format(boom))
+    # print("Boom 번호: {0}".format(boom))
     print("\n[{0}] 인어: 저부터 시작할게요!".format(mermaid.name))
 
     for i in range(1, 16, 1):
@@ -683,7 +683,7 @@ def minigame2_2_def ():
     knife = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
     boom = random.choice(knife)
 
-    print("Boom 번호: {0}".format(boom))
+    # print("Boom 번호: {0}".format(boom))
 
     for i in range(1, 16, 1):
         input("\n------------------------------------------------------------------------------\n")
@@ -749,6 +749,7 @@ def shell_1():
             print("[{0}] 인어: (그래.. 얼른 인간되는 약을 사러가야 해...) 아뇨, 제가 시간이 없어서요ㅠㅠ".format(mermaid.name))
             print("[조 개]: .............................")
             mermaid.shell_kill(listen)
+            mermaid.kill -= 10
             return listen
         else:
             print("다시 한번 생각해봐요.")
@@ -771,6 +772,7 @@ def shell_2():
         elif help == '2':
             mermaid.shell_kill(help)
             print("[{0}] 인어: 에이, 그냥 대충 듣고 가야지..".format(mermaid.name))
+            mermaid.kill -= 10
             break
         else:
             print("다시 한번 생각해봐요.")
@@ -788,8 +790,10 @@ def shell_3():
             print("[조 개]: 이렇게 실례만 해서 어떡하죠? 현재 10코인이 있는데 이거라도 받아주세요!!")
             mermaid.coin += 10
             print("[{0}] 인어: 네? 아뇨!? 저기!!".format(mermaid.name))
-            print("[조 개]: 정말 감사합니다!!\n")
-            print("\n딸랑!")
+            print("[조 개]: 정말 감사합니다!!")
+
+            print("\n------------------------------------------------------------------------------\n")
+            print("딸랑!")
             print("[{0}] 인어: 얼른 가서 신고한 후 다음 일정을 생각해 봐야겠어요!".format(mermaid.name))
             break
 
@@ -797,9 +801,10 @@ def shell_3():
             mermaid.shell_kill(call)
             print("\n------------------------------------------------------------------------------\n")
             print("[{0}] 인어: 맞아요, 그냥 가야겠어요... 신고는 본인이 의지가 있으시니 꼭 하실거라고 믿어요".format(mermaid.name))
+            mermaid.kill -= 5
             print("[조 개]: 이렇게 이야기 들어주셔서 고마워요.. 일단 사장님이 안계시니 동생 병원에 가봐야겠어요!")
             print("\n딸랑!")
-            print("[{0}] 인어: 이제 다음 일정을 생각해 봐야겠어요!".format(mermaid.name))
+            print("[{0}] 인어: 이제 다음 일정을 생각해 봐야겠어요!\n".format(mermaid.name))
             break
 
         else:

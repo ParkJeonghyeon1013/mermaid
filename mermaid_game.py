@@ -111,7 +111,7 @@ if map_num == '1':
     elif map_num == '2':
         money()
 
-        print("\n[{0}] 인어: 이제 진주가게로 가서 좀만 더 모으면 될 것 같아요!".format(mermaid.name))
+        print("[{0}] 인어: 이제 진주가게로 가서 좀만 더 모으면 될 것 같아요!".format(mermaid.name))
         s2_intro()
         next_game = s2_game1()
         s2_game2(next_game)
@@ -145,7 +145,7 @@ elif map_num == '2':
     elif map_num == '2':
         money()
 
-        print("\n[{0}] 인어: 이제 미역 공장으로 가서 좀만 더 모으면 될 것 같아요!".format(mermaid.name))
+        print("[{0}] 인어: 이제 미역 공장으로 가서 좀만 더 모으면 될 것 같아요!".format(mermaid.name))
         s1_intro()
         s1_game()
         s1_outro()
@@ -183,7 +183,7 @@ elif map_num == '3':
         elif map_num1 == '2':
             money()
 
-            print("\n[{0}] 인어: 이제 진주 가게로 가서 좀만 더 모으면 될 것 같아요!".format(mermaid.name))
+            print("[{0}] 인어: 이제 진주 가게로 가서 좀만 더 모으면 될 것 같아요!".format(mermaid.name))
             s2_intro()
             next_game = s2_game1()
             s2_game2(next_game)
@@ -215,11 +215,10 @@ elif map_num == '3':
         elif map_num1 == '2':
             money()
 
-            print("\n[{0}] 인어: 이제 진주 가게로 가서 좀만 더 모으면 될 것 같아요!".format(mermaid.name))
-            s2_intro()
-            next_game = s2_game1()
-            s2_game2(next_game)
-            s2_outro()
+            print("[{0}] 인어: 이제 미역 공장으로 가서 좀만 더 모으면 될 것 같아요!".format(mermaid.name))
+            s1_intro()
+            s1_game()
+            s1_outro()
 
             print("\n[{0}] 인어: {1}코인을 모았습니다! 약쟁이 소라게를 찾아가 물약과 교환해야겠어요~".format(mermaid.name, mermaid.coin))
             money()

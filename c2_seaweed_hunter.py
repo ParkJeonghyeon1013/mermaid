@@ -1,6 +1,11 @@
-class mini1_NPC:
-    shell_count = 0
-    seaweed_count = 0
+class Mini1_NPC:
+    def __init__(self, shell_count, seaweed_count):
+        self.shell_count = 0
+        self.seaweed_count = 0
+
+mini1_NPC = Mini1_NPC(0, 0)
+
+
 
 """from charater import Character
 class hunter (Character):

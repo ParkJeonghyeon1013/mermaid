@@ -31,34 +31,35 @@ def s1_game():
 
     # 첫번째 선택이 stage1인 경우 (코인이 50보다 적을 경우)
     # 굳이 이거 사용하지 않아도 될듯하지만 일단 복잡하니까 놔두기
-    if mermaid.coin <= 50:
 
-        # 미니게임으로 코인이 50개 이상 모일 때 까지
-        coin = mermaid.coin
+    # 1 2 3 별 미역 양식장 주인 / 따개비, 거북손 / 미역 발견
+    one = 1
+    two = 1
 
-        # 1 2 3 별 미역 양식장 주인 / 따개비, 거북손 / 미역 발견
-        while mini1_NPC.seaweed_count < 5:
-            print('''여기여기여기여기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!''''')
-            mini_num = random.randrange(1, 4)
+    while mini1_NPC.seaweed_count < 5:
+        mini_num = random.randrange(1, 4)
 
-            # 1은 미역 양식장 주인이 공격하는 것 승리시 kill 포인트가 쌓이지만 피해는 없고, 패배시 hp 깎인다
-            if mini_num == 1:
-                minigame1_1()
-                if mermaid.HP <= 25:
-                    mini1_health()
-                continue
+        # 1은 미역 양식장 주인이 공격하는 것 승리시 kill 포인트가 쌓이지만 피해는 없고, 패배시 hp 깎인다
 
-            # 2는 접착식 거북손, 따개비 발견 \n Homi 로 뗄 수 있음. kill 포인트가 쌓이고, 패배시 hp 깎인다
-            elif mini_num == 2:
-                minigame1_2()
-                if mermaid.HP <= 25:
-                    mini1_health()
-                continue
+        if mini_num == 1 and one <= 3:
+            one += 1
+            minigame1_1()
+            if mermaid.HP <= 25:
+                mini1_health()
+            continue
 
-            # 3은 미역 발견 / 승리시 10개의 코인을 얻을 수 있지만, 패배시 아무 변화 없음
-            elif mini_num == 3:
-                minigame1_3()
-                continue
+        # 2는 접착식 거북손, 따개비 발견 \n Homi 로 뗄 수 있음. kill 포인트가 쌓이고, 패배시 hp 깎인다
+        elif mini_num == 2 and two <= 6:
+            two += 1
+            minigame1_2()
+            if mermaid.HP <= 25:
+                mini1_health()
+            continue
+
+        # 3은 미역 발견 / 승리시 10개의 코인을 얻을 수 있지만, 패배시 아무 변화 없음
+        elif mini_num == 3:
+            minigame1_3()
+            continue
             
 def s1_outro():
     print("[미역 사장]: 오~ 미역 5개는 다 모아오셨나? 어디 한번 채취한 걸 꺼내봐!\n미역 외에도 따개비나 거북손이 있으면 추가적으로 돈을 주지!")
