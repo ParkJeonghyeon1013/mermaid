@@ -21,7 +21,8 @@ class Mermaid ():
             result = "person"
             return result
 
-mermaid = Mermaid("박", 100, 5, 0, 0)
+mermaid = Mermaid ("박", 100, 5, 0, 0)
+
 
 """
 class character:

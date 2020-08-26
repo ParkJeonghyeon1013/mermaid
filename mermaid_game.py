@@ -15,7 +15,7 @@ class user_ask ():
 class mermaid_answer ():
     answer_a = "지금 %s 코인 정도 있네요~" % mermaid.coin
     answer_b = "인간이 되는 약은 약쟁이 소라게에게 살 수 있어요!!"
-    answer_c = "코인 버는 방법은 2가지가 있어요~\n\n첫 번째는 진주 가게에서 알바 하는 것!\n두 번째는 미역 공장에서 알바 하는 것!\n"
+    answer_c = "코인 버는 방법은 2가지가 있어요~\n\n첫 번째는 미역 공장에서 알바 하는 것!\n두 번째는 진주 가게에서 알바 하는 것!\n"
   
 # 시작할지 말지 선택
 print("\n--------------게임 진행 시 대화는 enter 혹은 숫자키로 진행됩니다-------------\n\n                     *Mermaid to Human*\n")

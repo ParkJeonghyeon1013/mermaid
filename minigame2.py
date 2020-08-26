@@ -1,6 +1,6 @@
 import random
 import time
-from c1_character import mermaid
+from c1_character import mermaid, Mermaid
 from c3_pearlshell import children
 
 # 가위바위보 모듈
@@ -258,7 +258,7 @@ def minigame2_1_def ():
                             
                 # 일반적인 경우         
                 elif game > second:
-                    print("second: {0}/ game: {1}".format(second,game))
+                    # print("second: {0}/ game: {1}".format(second,game))
 
                     # 제한 시간 내에 성공, 실패
                     if game > timer:
@@ -308,7 +308,7 @@ def minigame2_1_def ():
                             
                 # 일반적인 경우         
                 elif game > second:
-                    print("second: {0}/ game: {1}".format(second,game))
+                    # print("second: {0}/ game: {1}".format(second,game))
 
                     # 제한 시간 내에 성공, 실패
                     if game > timer:
@@ -358,7 +358,7 @@ def minigame2_1_def ():
                             
                 # 일반적인 경우         
                 elif game > second:
-                    print("second: {0}/ game: {1}".format(second,game))
+                    # print("second: {0}/ game: {1}".format(second,game))
 
                     # 제한 시간 내에 성공, 실패
                     if game > timer:
@@ -408,7 +408,7 @@ def minigame2_1_def ():
                             
                 # 일반적인 경우         
                 elif game > second:
-                    print("second: {0}/ game: {1}".format(second,game))
+                    # print("second: {0}/ game: {1}".format(second,game))
 
                     # 제한 시간 내에 성공, 실패
                     if game > timer:
@@ -458,7 +458,7 @@ def minigame2_1_def ():
                             
                 # 일반적인 경우         
                 elif game > second:
-                    print("second: {0}/ game: {1}".format(second,game))
+                    # print("second: {0}/ game: {1}".format(second,game))
 
                     # 제한 시간 내에 성공, 실패
                     if game > timer:
@@ -508,7 +508,7 @@ def minigame2_1_def ():
                             
                 # 일반적인 경우         
                 elif game > second:
-                    print("second: {0}/ game: {1}".format(second,game))
+                    # print("second: {0}/ game: {1}".format(second,game))
 
                     # 제한 시간 내에 성공, 실패
                     if game > timer:
@@ -558,7 +558,7 @@ def minigame2_1_def ():
                             
                 # 일반적인 경우         
                 elif game > second:
-                    print("second: {0}/ game: {1}".format(second,game))
+                    # print("second: {0}/ game: {1}".format(second,game))
 
                     # 제한 시간 내에 성공, 실패
                     if game > timer:
@@ -608,7 +608,7 @@ def minigame2_1_def ():
                             
                 # 일반적인 경우         
                 elif game > second:
-                    print("second: {0}/ game: {1}".format(second,game))
+                    # print("second: {0}/ game: {1}".format(second,game))
 
                     # 제한 시간 내에 성공, 실패
                     if game > timer:
@@ -743,13 +743,12 @@ def shell_1():
         listen = str(input("[{0}] 인어: 어떻게 하는게 좋을까요?\n1- 들어본다 2- 듣지 않고 좋게 돌려보낸다\n".format(mermaid.name)))
         if listen == '1':
             print("[{0}] 인어: 네, 들어드릴게요! 무슨 일이 있었나요?".format(mermaid.name))
-            mermaid.shell_kill(listen)
+            Mermaid.shell_kill(mermaid, listen)
             return listen
         elif listen == '2':
-            print("[{0}] 인어: (그래.. 얼른 인간되는 약을 사러가야 해...) 아뇨, 제가 시간이 없어서요ㅠㅠ".format(mermaid.name))
+            print("[{0}] 인어: (그래.. 얼른 인간되는 물약을 사러가야 해...) 아뇨, 제가 시간이 없어서요ㅠㅠ".format(mermaid.name))
             print("[조 개]: .............................")
-            mermaid.shell_kill(listen)
-            mermaid.kill -= 10
+            mermaid.kill += 10
             return listen
         else:
             print("다시 한번 생각해봐요.")
@@ -763,16 +762,15 @@ def shell_2():
         help = str(input("도움을 줄까요?\n1- 진주를 준다 2- 그냥 넘어간다\n"))
         if help == '1':
             input("\n------------------------------------------------------------------------------\n")
-            mermaid.shell_kill(help)
+            Mermaid.shell_kill(mermaid, help)
             print("[{0}] 인어: 이거라도 괜찮다면 받아주세요!".format(mermaid.name))
             print("[조 개]: 네? 이걸 왜 제게??")
             print("[{0}] 인어: 일단 받아주세요, 저는 이제 필요없을 것 같아서요~".format(mermaid.name))
             print("[조 개]: 정말 감사합니다!! 덕분에 동생이 수술할 수 있게 되었어요.. (꾸벅 꾸벅) 그래도, 이 사건에 대해서는 그냥 넘어갈 순 없을 것 같아요..")
             break
         elif help == '2':
-            mermaid.shell_kill(help)
+            Mermaid.shell_kill(mermaid, help)
             print("[{0}] 인어: 에이, 그냥 대충 듣고 가야지..".format(mermaid.name))
-            mermaid.kill -= 10
             break
         else:
             print("다시 한번 생각해봐요.")
@@ -798,10 +796,9 @@ def shell_3():
             break
 
         elif call == '2':
-            mermaid.shell_kill(call)
+            Mermaid.shell_kill(mermaid, call)
             print("\n------------------------------------------------------------------------------\n")
-            print("[{0}] 인어: 맞아요, 그냥 가야겠어요... 신고는 본인이 의지가 있으시니 꼭 하실거라고 믿어요".format(mermaid.name))
-            mermaid.kill -= 5
+            print("[{0}] 인어: 맞아요, 그냥 가야겠어요... (신고는 본인이 의지가 있으시니 꼭 하실거라고 믿어요.)".format(mermaid.name))
             print("[조 개]: 이렇게 이야기 들어주셔서 고마워요.. 일단 사장님이 안계시니 동생 병원에 가봐야겠어요!")
             print("\n딸랑!")
             print("[{0}] 인어: 이제 다음 일정을 생각해 봐야겠어요!\n".format(mermaid.name))

@@ -1,4 +1,4 @@
-from c1_character import mermaid
+from c1_character import mermaid, Mermaid
 from c3_pearlshell import children
 from minigame2 import rps, minigame2_1_att, minigame2_1_def, minigame2_2_att, minigame2_2_def, minigame2_3, shell_1, shell_2, shell_3
 
@@ -511,7 +511,6 @@ def s2_outro():
     if listen == '1':
         input("\n------------------------------------------------------------------------------\n")
         print("[조 개]: 사실 [진주 사장]님께서 제 진주를 훔쳐가셨어요...")
-        mermaid.shell_kill
         print("[{0}] 인어: 네? 뭐라고요?!? 그래서 사장님이...".format(mermaid.name))
         print("[조 개]: 제 동생 수술비라서 꼭 대가를 받고 팔았어야 했는데, 몰래 훔쳐갈거라곤 생각하지 못했어요...")
         shell_2()
@@ -525,4 +524,3 @@ def s2_outro():
         print("딸랑\n그 자리에 서있는 [조 개]를 뒤로 하고, 인간이 되는 약을 사기 위해 나왔다")
         print("[조 개]: 째릿.......")
         print("[{0}] 인어: 엥? 순간 서늘한 느낌이 들었다..".format(mermaid.name))
-        mermaid.shell_kill
